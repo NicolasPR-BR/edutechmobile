@@ -1,0 +1,33 @@
+<meta charset= "UTF-8">
+<input/>
+
+<button>Comparar</button>
+
+<script>
+	var segredos = [];
+	segredos.push(5);
+	segredos.push(7);
+	segredos.push(10);
+	segredos.push(2);
+	segredos.push(5);
+	segredos.push(3);
+	
+	var input = document.querySelector("input");
+	
+	function verifica(){
+		for( var i = 0; i < segredos.length; i++){
+			if(input.value == segredos[i]){
+			alert("você acertou");
+			
+			}else{
+			alert("você errou");
+			
+		}
+		}
+		input.value = "";
+		input.focus();
+	}
+	
+	var button = document.querySelector("button");
+	button.onclick = verifica;
+</script>

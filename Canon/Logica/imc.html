@@ -1,0 +1,40 @@
+<meta charset="UTF-8">
+
+
+<script>
+function pulaLinha(){
+	document.write("<br>")
+}
+function print(valor){
+	document.write("<big>" + valor + "</big>");
+	pulaLinha();
+}
+function imc(peso,altura){
+var result = Math.round(peso/(altura*altura));
+
+if(result < 18.5){
+print("abaixo do peso");
+}
+if(result >= 19 && result <=34){
+print("Seu peso é ideal");
+}
+if(result >= 35){
+ print("acima do recomendado");
+}
+return result;
+}
+
+var total = 0;
+var peso = prompt("Digite seu peso: ");
+var altura = prompt("Digite sua altura: ");
+var peso2 = 60;
+var altura2 = 1.70
+
+var imc1 = imc(peso,altura);
+print(imc1);
+var imc2 = imc(peso2,altura2);
+print(imc2);
+
+total = imc1 + imc2;
+print("total é :" + total);
+</script> 
