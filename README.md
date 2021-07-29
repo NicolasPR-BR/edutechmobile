@@ -7,10 +7,9 @@
 <br/>Meu perfil pessoal da Alura.</p></a>
 
 <br/>
-<p align='center'>Copyright 2021 NicolasPR-BR</p>
+<p>
+  The files are separated in two ways</o> <a href='https://en.wikipedia.org/wiki/Canon_(fiction)'>Canon</a> and <a href='https://en.wikipedia.org/wiki/Canon_(fiction)'>non-canon</a>. The files that are canon are officialy part of Alura's curriculum, non-canon are personal projects or <a href='https://www.freecodecamp.org/'>Free Code Camp tutorials</a>.
+</p>
+  Os arquivos são separados de duas maneiras, <a href='https://pt.wikipedia.org/wiki/C%C3%A2none_(fic%C3%A7%C3%A3o)'>"canônicos"</a> e <a href='https://pt.wikipedia.org/wiki/C%C3%A2none_(fic%C3%A7%C3%A3o)'>"não canônicos"</a>. Os arquivos canônicos são oficialmente parte do currículo da Alura, não canônicos são projetos pessoais ou tutoriais da <a href='https://www.freecodecamp.org/'>Free Code Camp tutorials</a>."
 
-Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
-
-The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+#<h1 align='center'>[Licença/License](./LICENSE)</h1>
