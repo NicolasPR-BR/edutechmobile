@@ -1,0 +1,37 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    function desenhaRetangulo(x, y, largura, altura, cor) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.fillStyle=cor;
+        pincel.fillRect(x,y, largura, altura);
+        pincel.strokeStyle='black';
+        pincel.strokeRect(x,y, largura, altura);
+    }
+
+    function desenhaTexto(x, y, texto) {
+        var tela = document.querySelector('canvas');
+        var pincel = tela.getContext('2d');
+
+        pincel.font='15px Georgia';
+        pincel.fillStyle='black';
+        pincel.fillText(texto, x, y);    
+    }
+	
+	desenhaTexto(0,10,"2015");
+	var vinte15 = [50,25,20,5];
+	var vinte16 = [65,20,13,2];
+	
+	desenhaRetangulo(0,20,10,65,'blue');
+	desenhaRetangulo(0,20+vinte15[0],10,65,'green');
+	desenhaRetangulo(0,20+vinte15[1],10,65,'yellow');
+	desenhaRetangulo(0,20+vinte15[2],10,65,'red');
+	
+	desenhaRetangulo(20,20,10,65,'blue');
+	desenhaRetangulo(20,20+vinte16[0],10,65,'green');
+	desenhaRetangulo(20,20+vinte16[1],10,65,'yellow');
+	desenhaRetangulo(20,20+vinte16[2],10,65,'red');
+</script>
