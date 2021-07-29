@@ -1,7 +1,8 @@
 # <h1 align='center'>edutechmobile</h1>
-<p align='center' padding-bottom='1.5rem'><a href='https://www.alura.com.br/cursos-online-mobile'>Alura's tech mobile course curriculum.
+<br/>
+<p align='center'><a href='https://www.alura.com.br/cursos-online-mobile'>Alura's tech mobile course curriculum.
 <br/>Currículo do curso Mobile da Alura.</a></p>
-
+<br/>
 <p align='center'>Copyright 2021 NicolasPR-BR</p>
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
