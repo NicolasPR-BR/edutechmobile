@@ -1,5 +1,6 @@
 # Alura-techmobile
 Alura's tech mobile course curriculum.
+Currículo do curso Mobile da Alura.
 
 Copyright 2021 Nicolas B Santana
 
