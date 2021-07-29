@@ -1,4 +1,4 @@
-# <h1 align='center'>Alura-techmobile</h1>
+# <h1 align='center'>edutechmobile</h1>
 <p align='center' padding-bottom='1.5rem'><a href='https://www.alura.com.br/cursos-online-mobile'>Alura's tech mobile course curriculum.
 <br/>Currículo do curso Mobile da Alura.</a></p>
 
