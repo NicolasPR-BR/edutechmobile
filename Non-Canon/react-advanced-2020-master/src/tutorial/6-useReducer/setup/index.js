@@ -1,4 +1,4 @@
-import React, { useState, useReducer } from 'react';
+import React, { useState, useReducer, useEffect } from 'react';
 import Modal from './Modal';
 import { data } from '../../../data';
 import {reducer} from './reduce.js';
@@ -14,7 +14,8 @@ const defaultState = {
 const Index = () => {
   const [name, setName] = useState('');
   const [state, dispatch] = useReducer(reducer,defaultState);
-
+  
+  
  const submitHandler = (e) =>{
     e.preventDefault();
     if(name){
@@ -29,8 +30,7 @@ const Index = () => {
   const closeModal = () =>{
     dispatch({type: 'CLOSE_MODAL'});
   }
-
-
+  
 
   return <>
   {state.isModalOpen && <Modal closeModal={closeModal} modalContent={state.modalContent}/>}
@@ -54,9 +54,6 @@ const Index = () => {
     })
   }
   </>;
-
-
-
 };
 
 export default Index;
