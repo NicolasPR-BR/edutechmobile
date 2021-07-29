@@ -2,6 +2,10 @@
 <br/>
 <p align='center'><a href='https://www.alura.com.br/cursos-online-mobile'>Alura's tech mobile course curriculum.
 <br/>Currículo do curso Mobile da Alura.</a></p>
+
+<a href='https://cursos.alura.com.br/user/nicolas-brendow-santana'><p align='center'>My personal Alura profile.
+<br/>Meu perfil pessoal da Alura.</p></a>
+
 <br/>
 <p align='center'>Copyright 2021 NicolasPR-BR</p>
 
