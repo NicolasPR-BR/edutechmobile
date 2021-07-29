@@ -184,11 +184,10 @@ p {
   margin: 2rem auto;
   align-items: center;
   border-radius: var(--radius);
+  transition: 1s ease-in-out;
 }
 .item:hover {
   background-color: blanchedalmond;
-
-  transition: background-color 900ms ease-in-out;
 }
 .item button,
 .item a {
