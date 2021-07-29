@@ -1,3 +1,5 @@
+Project by John Smilga https://github.com/john-smilga/react-advanced-2020
+
 ## Corresponding Projects
 
 #### useState
