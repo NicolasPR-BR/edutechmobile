@@ -10,6 +10,8 @@ import Person from './Person';
 import Index from '../../6-useReducer/setup/index';
 // navbar
 import Navbar from './Navbar';
+
+
 const ReactRouterSetup = () => {
   
   return(
@@ -19,7 +21,7 @@ const ReactRouterSetup = () => {
     <Route exact path="/">
       <Home/>
     </Route>
-
+     
     <Route path="/about">
       <About/>
     </Route>
