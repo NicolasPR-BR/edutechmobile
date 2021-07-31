@@ -1,43 +1,53 @@
-import { render } from '@testing-library/react';
-import React, {Component, Fragment} from 'react';
-import Header from './header';
-import Datatable from './Datatable';
+import React, { Component, Fragment } from 'react';
+import Header from './Header';
 
-class Autores extends Component{
-    state = {
-        autores: [
-          {
-            nome: 'Paulo',
-            livro: 'React',
-            preco: '1000'
-          },
-          {
-            nome: 'Daniel',
-            livro: 'Java',
-            preco: '99'
-          },
-          {
-            nome: 'Marcos',
-            livro: 'Design',
-            preco: '150'
-          },
-          {
-            nome: 'Bruno',
-            livro: 'DevOps',
-            preco: '100'
-          }
-        ]
-    };
+import DataTable from './DataTable';
 
-    render(){
-        return(
-        <Fragment>
-            <Header/>
-            <div className='container'>
-                <Datatable dados={this.state.autores} colunas={'nome'}/>
+class Autores extends Component {
+
+    constructor(props) {
+        super(props);
+
+        this.state = {
+            autores: [
+                {
+                  nome: 'Paulo',
+                  livro: 'React',
+                  preco: '1000'
+                },
+                {
+                  nome: 'Daniel',
+                  livro: 'Java',
+                  preco: '99'
+                },
+                {
+                  nome: 'Marcos',
+                  livro: 'Design',
+                  preco: '150'
+                },
+                {
+                  nome: 'Bruno',
+                  livro: 'DevOps',
+                  preco: '100'
+                }
+              ],
+            titulo: 'Autores'
+        }
+    }
+
+
+    render() {
+        return (
+            <Fragment>
+                <Header />
+                <div className="container">
+                    <h1>Autores</h1>
+                    <DataTable dados={this.state.autores} titulo={this.state.titulo} colunas={['nome']} />
+
                 </div>
-                <h1>Sobre</h1>
-        </Fragment>)
+                
+            </Fragment>
+        );
     }
 }
 export default Autores;

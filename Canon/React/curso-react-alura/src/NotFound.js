@@ -1,13 +1,23 @@
-import React, {Fragment} from 'react';
-import Header from './header';
+import React, { Component, Fragment } from 'react';
 
-const NotFound = ()=>{
+import Header from './Header';
+
+class NotFound extends Component{
+
+    render(){
         return(
-        <Fragment>
-            <Header/>
-                <h1>404</h1>
-        </Fragment>
+            
+            <Fragment>
+                <Header />
+                <div className="container">
+                    <h1 className="center"> Página não encontrada </h1>
+                </div>
+               
+            </Fragment>
+            
+        )
+    }
 
-    );
+
 }
 export default NotFound;
