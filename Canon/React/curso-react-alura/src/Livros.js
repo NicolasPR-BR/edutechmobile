@@ -2,6 +2,7 @@ import React, { Component, Fragment } from 'react';
 import Header from './Header';
 
 import DataTable from './DataTable'
+import UseFetch from './UseFetch';
 
 class Livros extends Component {
 
@@ -9,32 +10,16 @@ class Livros extends Component {
         super(props);
 
         this.state = {
-            autores: [
-                {
-                  nome: 'Paulo',
-                  livro: 'React',
-                  preco: '1000'
-                },
-                {
-                  nome: 'Daniel',
-                  livro: 'Java',
-                  preco: '99'
-                },
-                {
-                  nome: 'Marcos',
-                  livro: 'Design',
-                  preco: '150'
-                },
-                {
-                  nome: 'Bruno',
-                  livro: 'DevOps',
-                  preco: '100'
-                }
-              ],
-            titulo: 'Livros'
+            livros: [],
+            titulo: 'Livros',
         }
     }
 
+    componentDidMount(){
+      UseFetch.ListaLivros().then(res =>{
+        this.setState({livros: [...this.state.livros, ...res.data]})
+      });
+    }
     
 
     render() {
@@ -43,7 +28,7 @@ class Livros extends Component {
                 <Header />
                 <div className="container">
                     <h1>Livros</h1>
-                    <DataTable dados={this.state.autores} titulo={this.state.titulo} colunas={['livro']} />
+                    <DataTable dados={this.state.livros} titulo={this.state.titulo} colunas={['livro']} />
 
                 </div>  
             </Fragment>

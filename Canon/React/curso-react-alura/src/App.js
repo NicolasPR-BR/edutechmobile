@@ -3,57 +3,50 @@ import 'materialize-css/dist/css/materialize.min.css'
 import Tabela from './Tabela';
 import Formulario from './Formulario';
 import Header from './Header';
-
+import UseFetch from './UseFetch';
 
 class App extends Component {
+  constructor(props){
+    super(props);
 
-  state = {
-    autores: [
-      {
-        nome: 'Paulo',
-        livro: 'React',
-        preco: '1000'
-      },
-      {
-        nome: 'Daniel',
-        livro: 'Java',
-        preco: '99'
-      },
-      {
-        nome: 'Marcos',
-        livro: 'Design',
-        preco: '150'
-      },
-      {
-        nome: 'Bruno',
-        livro: 'DevOps',
-        preco: '100'
-      }
-    ],
-  }
+    this.state = {
+    autores: [],
+  }}
 
-  removeAutor = index => {
+  removeAutor = id => {
 
     const { autores } = this.state;
 
     this.setState({
-      autores: autores.filter((autor, posAtual) => {
-        return posAtual !== index;
+      autores: autores.filter((autor) => {
+        return autor.id !== id;
       }),
     })
+
+    UseFetch.RemoveAutor(id);
 
   }
 
   escutadorDeSubmit = autor => {
-    this.setState({ autores: [...this.state.autores, autor] });
+    UseFetch.CriaAutor(JSON.stringify(autor)).then(res => res.data).then(autor => {
+      this.setState({ autores: [...this.state.autores, autor] });
+    })
+    
   }
-  render() {
 
-    fetch('http://localhost:8000/api/autor').then(res => res.json()).then( res => console.log(res.data));
+  componentDidMount(){
+    UseFetch.ListaAutores().then(res => {this.setState({autores: [...this.state.autores, ...res.data]})})
+  }
+
+  render() {
+    
+   
+    UseFetch.ListaAutores().then(res => console.log(res.data));
+    
 
 return (
       <Fragment>
-        <Header />
+        <Header/>
         <div className="container mb-10">
           <h1>Casa do código</h1>
           <Tabela autores={this.state.autores} removeAutor={this.removeAutor} />
