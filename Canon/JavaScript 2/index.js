@@ -4,6 +4,7 @@ import { ContaCorrente } from "./ContaCorrente.js";
 import { ContaPoupanca } from "./ContaPoupanca.js";
 import { Gerente } from "./funcionarios/Gerente.js";
 import {SistemaDeAutenticacao} from "./SistemaDeAutenticacao.js";
+
 function printf(valor){
     console.log(valor);
 }

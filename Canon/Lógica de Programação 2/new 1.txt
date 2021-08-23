@@ -1,5 +1,0 @@
-<canvas width="600" height=400>
-
-<script>
-	var tela = document.querySelector('canvas');
-</script>
