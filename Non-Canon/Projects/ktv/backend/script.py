@@ -27,21 +27,38 @@ vessel = conn.space_center.active_vessel
 refframe = vessel.orbit.body.reference_frame
 position = conn.add_stream(vessel.position, refframe)
 flight_info = vessel.flight()
+
 altitude = conn.add_stream(getattr, flight_info, 'mean_altitude')
 thrust = conn.add_stream(getattr, vessel, 'thrust')
 qPressure = conn.add_stream(getattr, flight_info, 'dynamic_pressure')
-#missionElapsedTime = conn.add_stream(vessel.met)
+missionElapsedTime = conn.add_stream(getattr, vessel, 'met')
 speed = conn.add_stream(getattr, flight_info, 'speed')
 mass = conn.add_stream(getattr, vessel, 'mass')
+latitude = conn.add_stream(getattr, flight_info, 'latitude')
+longitude = conn.add_stream(getattr, flight_info, 'longitude')
+
 while(1):
 
-    time.sleep(2)
+    time.sleep(.5)
     data = {
         "height": int(altitude()),
         "position": position(),
-        "thrust": thrust(),
+        "thrust": int(thrust()),
         "dynamic_pressure": int(qPressure()),
-        # "tplus": missionElapsedTime(),
+        "tplus": missionElapsedTime(),
         "mass": int(mass()),
+        "latitude": latitude(),
+        "longitude": longitude(),
     },
     sio.emit('data_received', data)
+    print(data)
+    data = {
+        "height": 0,
+        "position": 0,
+        "thrust": 0,
+        "dynamic_pressure": 0,
+        "tplus": 0,
+        "mass": 0,
+        "latitude": 0,
+        "longitude": 0,
+    }

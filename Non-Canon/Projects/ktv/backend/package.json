@@ -9,8 +9,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "python-shell": "^3.0.0",
-    "socket.io": "2.4.0",
+    "python-shell": "^3.0.0",    
+    "socket.io": "4.1.3",
     "ws": "^8.2.0"
   },
   "optionalDependencies": {
