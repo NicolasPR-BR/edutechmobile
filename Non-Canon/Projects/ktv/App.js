@@ -1,8 +1,9 @@
 import './App.css';
 import { useState } from 'react';
-const io = require('socket.io-client');
- 
+import io from 'socket.io-client';
+
 function App() {
+
   const [data, setData] = useState({
     "height": 0,
     "position":[0,0,0],
@@ -10,17 +11,47 @@ function App() {
     "dynamic_pressure": 0,
     "mass":0,
   });
-  const [socket, setSocket] = useState(io("http://localhost:3030"));
+
+
   const [isConnected, setConnected] = useState(false);
+  const opcao = {
+    reconnection: false, 
+    reconnectionAttempts: 5,
+    reconnectionDelay:2000
+  }
+  const [socket, setSocket] = useState(io("http://localhost:3030", opcao));
   const [counter, setCounter] = useState(0);  
 
   socket.on('connect', () =>{
-    console.log('logged');
+    console.log('connected')
+    setConnected(true);
+
   })
-  socket.on('data', (data) =>{
-    console.log(data);
-  })
+  socket.on("client_data", (number)=>{
+    if(number){
+      //const altura = number.height.split('\n',5)[0];      
+      setCounter(counter + 1);
+      setData(number);
+    }
   
+  socket.on("reconnect_attempt", () => {
+    setConnected(false);
+  });
+  socket.on("reconnect", (attempt) => {
+    setConnected(true);
+  });
+  socket.on('disconnect', function(e){
+    e.preventDefault();
+    console.log("Failed logging");
+    setCounter('tetedawdawdwadwafasfdwda');
+  });
+  socket.on('connect_error', function(e) {
+    socket.reconnection(false);
+    alert('');
+  }); 
+
+})
+
   return (
     <div className="App">
       <header className="App-header">
