@@ -12,8 +12,8 @@
     console.log('conectado')
     socket.on('data_received', (data)=>{
       console.log("data", data);
-      io.emit('client_data', data);
-      data = null;
+      io.volatile.emit('client_data', data);
+
     })
   io.on('connection', (socket) => {
   socket.on('disconnecting', (reason) => {

@@ -25,7 +25,7 @@ conn = krpc.connect()
 # Define types and data to be later sent to the webserver in the while loop
 vessel = conn.space_center.active_vessel
 refframe = vessel.orbit.body.reference_frame
-position = conn.add_stream(vessel.position, refframe)
+#position = conn.add_stream(vessel.position, refframe)
 flight_info = vessel.flight()
 
 altitude = conn.add_stream(getattr, flight_info, 'mean_altitude')
@@ -38,11 +38,8 @@ latitude = conn.add_stream(getattr, flight_info, 'latitude')
 longitude = conn.add_stream(getattr, flight_info, 'longitude')
 
 while(1):
-
-    time.sleep(.5)
     data = {
         "height": int(altitude()),
-        "position": position(),
         "thrust": int(thrust()),
         "dynamic_pressure": int(qPressure()),
         "tplus": missionElapsedTime(),
@@ -54,7 +51,6 @@ while(1):
     print(data)
     data = {
         "height": 0,
-        "position": 0,
         "thrust": 0,
         "dynamic_pressure": 0,
         "tplus": 0,
@@ -62,3 +58,4 @@ while(1):
         "latitude": 0,
         "longitude": 0,
     }
+    time.sleep(3)
