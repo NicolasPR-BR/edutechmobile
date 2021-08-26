@@ -14,7 +14,7 @@
     console.count('conectado', counter)
     socket.on('data_received', (data)=>{
       //console.log("data", data);
-      io.volatile.emit('client_data', {data});
+      io.volatile.emit('client_data', data);
 
     })
   io.on('connection', (socket) => {

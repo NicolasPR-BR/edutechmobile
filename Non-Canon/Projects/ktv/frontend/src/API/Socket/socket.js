@@ -31,7 +31,6 @@ async function socket(setConnected, setHeight, setData,heightPlot, data){
           'tplus': parseInt(data.tplus), 
           'amnt': 100
         }]);
-        console.log(dados);
     }
 
     counter++;

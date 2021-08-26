@@ -4,9 +4,6 @@ import Chart from './Components/chart/chart';
 import socket from './API/Socket/socket';
 
 function App() {
-  
-  const [buffer, setBuffer] = useState([]);
-
   let counter = 0;
   
   const [data, setData] = useState({
