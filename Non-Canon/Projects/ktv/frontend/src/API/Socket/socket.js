@@ -26,15 +26,15 @@ async function socket(setConnected, setHeight, setData,heightPlot, data){
           'tplus': parseInt(dados.tplus), 
           'amnt': 100
         }
-        setHeight ([...heightPlot, novosDados, {
-          'height': data.height, 
+        setHeight ([novosDados, {
+         'height': data.height, 
           'tplus': parseInt(data.tplus), 
           'amnt': 100
         }]);
     }
 
     counter++;
-    if(dados !== data && counter === 2){
+    if(counter === 2){
       setData(dados);
       
      }

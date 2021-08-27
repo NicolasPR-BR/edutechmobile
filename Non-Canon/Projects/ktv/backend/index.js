@@ -8,13 +8,28 @@
   },
   transports: ['polling','websocket']
   })
+  let dados = {
+    "height": 0,
+    "thrust": 0,
+    "dynamic_pressure": 0,
+    "mass":0,
+    "tplus": 0,
+    "latitude":0,
+    "longitude":0,
+    
+  }
+
   io.setMaxListeners(50);
   io.on('connection', (socket) =>{
     counter++;
     console.count('conectado', counter)
     socket.on('data_received', (data)=>{
       //console.log("data", data);
+     // if(counter >= 10){
       io.volatile.emit('client_data', data);
+    //  }else{
+       // dados = [...dados];
+     // }
 
     })
   io.on('connection', (socket) => {

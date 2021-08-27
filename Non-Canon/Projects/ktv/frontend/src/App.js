@@ -4,8 +4,6 @@ import Chart from './Components/chart/chart';
 import socket from './API/Socket/socket';
 
 function App() {
-  let counter = 0;
-  
   const [data, setData] = useState({
     "height": 0,
     "thrust": 0,
@@ -42,11 +40,11 @@ function App() {
       </>
     )
   }, data)
-
+  
   return (
     <div className="App">
       <header className="App-header">
-        <Chart props={heightPlot}/>
+        <Chart props={heightPlot}/>      
         <Body/>
 
       </header>

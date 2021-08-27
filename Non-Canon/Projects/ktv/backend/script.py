@@ -58,4 +58,4 @@ while(1):
         "latitude": 0,
         "longitude": 0,
     }
-    time.sleep(2)
+    time.sleep(1)
