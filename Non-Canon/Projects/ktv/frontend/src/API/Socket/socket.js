@@ -1,43 +1,34 @@
-import {useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 
-const io = require('socket.io-client');
-const opcao = {
-    rememberUpgrade: true,
-    transports: ['websocket'],
-    reconnectionDelay: 2000,
-    reconnectionDelayMax: 5000,
-  }
-const server = io("ws://127.0.0.1:3030", opcao);
+const server = new WebSocket('ws://localhost:3040');
 
-async function socket(setConnected, setHeight, setData,heightPlot, data){
+function socket(setConnected, setHeight, setData, heightPlot, data){
 
-    server.on('connect', () =>{
-    console.log('logged');
+  server.onopen = () =>{
+    console.log('Logado')
     setConnected(true);
-     })
+    console.log(heightPlot)
+    server.onmessage = (dados) =>{
+      dados = JSON.parse(dados.data);
+        
+      let counter = 0;  
+       if(counter >= 50){
+         let novosDados = [{
+           'height': data.height, 
+           'tplus': parseInt(data.tplus), 
+           'amt': 100,
+         }]
+        
+        setHeight((heightPlot) => [{...heightPlot},{...novosDados}])
+         //setHeight(novosDados)
+         console.log(heightPlot);
+       }
 
-    let counter = 0;
-
-    server.on('client_data', (dados) =>{
-    //console.log(data);
-     if(counter >= 5){
-        const novosDados = {
-          'height': dados.height, 
-          'tplus': parseInt(dados.tplus), 
-          'amnt': 100
-        }
-        setHeight ([novosDados, {
-         'height': data.height, 
-          'tplus': parseInt(data.tplus), 
-          'amnt': 100
-        }]);
+     
+     setData(dados)
+     counter++;
     }
-
-    counter++;
-    if(counter === 2){
-      setData(dados);
-      
-     }
-    })
+  };
+  
 }
 export default socket;
