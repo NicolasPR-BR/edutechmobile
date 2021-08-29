@@ -26,6 +26,19 @@ function App() {
     'amt': 100
     }]
   );
+  const [mass, setMass] = useState([
+    {
+    'name': 'Mass',
+    'Mass': data.mass,
+    'yAxis': parseInt(data.tplus),
+    'amt': 100
+    },{
+    'Mass': data.mass,
+    'yAxis': parseInt(data.tplus),
+    'amt': 100
+    }]
+  );
+
   const [thrustPlot, setThrust] = useState([
     {
     'name': 'Thrust',
@@ -36,9 +49,26 @@ function App() {
     'Thrust': data.thrust,
     'yValue': parseInt(data.tplus),
     'amt': 100
+    },
+    {
+    'Thrust': 5000,
+    'yValue': parseInt(data.tplus),
+    'amt': 100
     }]
   );
-  
+  const [Q, setQ] = useState([
+    {
+    'name': 'Pressure',
+    'Pressure': parseInt(data.dynamic_pressure),
+    'yValue': parseInt(data.tplus),
+    'amt': 100
+    },{
+    'Pressure': parseInt(data.dynamic_pressure),
+    'yValue': parseInt(data.tplus),
+    'amt': 100
+    }]
+  );
+
   const [isConnected, setConnected] = useState(false);
 
   useEffect(() => {
@@ -81,12 +111,25 @@ function App() {
     }])
     counter = 0; 
 
-    setThrust([{
-    'Thrust': data.thrust,
+    setQ([{
+    'Pressure': parseInt(data.dynamic_pressure),
+    'yValue': parseInt(data.tplus),
+    'amt': 100
+    }])
+
+    setMass([{
+    'Mass': data.mass,
     'yValue': parseInt(data.tplus),
     'amt': 100
     }])}
 
+    setThrust([{
+    'Thrust': data.thrust,
+    'yValue': parseInt(data.tplus),
+    'amt': 100
+    }])
+
+    
   }
   
   }, [data])
@@ -98,8 +141,13 @@ function App() {
       <header className="App-header">
         <div className='plot'>
         <Chart data={heightPlot}/>      
-        <Chart data={thrustPlot}/>      
+        <Chart data={thrustPlot}/>
         </div>
+        <div className='plot'>
+        <Chart data={Q}/>     
+        <Chart data={mass}/>
+
+        </div> 
         <Body/>
       </header>
     </div>

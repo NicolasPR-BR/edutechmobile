@@ -16,6 +16,7 @@
   color: #61dafb;
 }
 .plot {
+  margin-top: 20px;
   display: flex;
 }
 .tel-body {
