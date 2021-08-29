@@ -13,23 +13,36 @@ function App() {
     "latitude":0,
     "longitude":0,
   });
+
   const [heightPlot, setHeight] = useState([
     {
-    'height': data.height,
-    'tplus': parseInt(data.tplus),
+    'name': 'Height',
+    'Height': data.height,
+    'yAxis': parseInt(data.tplus),
+    'amt': 100
+    },{
+    'Height': data.height,
+    'yAxis': parseInt(data.tplus),
     'amt': 100
     }]
   );
-
+  const [thrustPlot, setThrust] = useState([
+    {
+    'name': 'Thrust',
+    'Thrust': data.thrust,
+    'yValue': parseInt(data.tplus),
+    'amt': 100
+    },{
+    'Thrust': data.thrust,
+    'yValue': parseInt(data.tplus),
+    'amt': 100
+    }]
+  );
+  
   const [isConnected, setConnected] = useState(false);
 
-  const update = (data, data2) =>{
-    console.log("updater")
-    heightPlot = ([...data, ...data2]);
-  }
-
   useEffect(() => {
-    socket(setConnected, setHeight, setData, heightPlot, data, update);    
+    socket(setConnected, setHeight, setData, heightPlot, data);    
 
   }, [])
   
@@ -38,8 +51,10 @@ function App() {
     //<p>Height: {heightPlot.height}</p>
     return (
       <>
+        
         <p>Telemetry Server connected?
         {isConnected === true ?<> True</>:<> False</>}</p>
+        <p>Height: {heightPlot.yAxis}</p>
         
 
         <p>T+: {data.tplus}</p>
@@ -47,38 +62,44 @@ function App() {
         <p>Thrust Newtons: {data.thrust}</p>
         <p>Q (Pascal): {data.dynamic_pressure}</p>
         <p>Mass kg: {data.mass}</p>
+       
+
       </>
     )
   }, data)
+  let counter = 5;
 
-  //   <Chart props={[...heightPlot,{
-  //  'height': data.height,
-  // 'tplus': parseInt(data.tplus),
-  //  'amt': 100
-  //  }]}/>
-  let counter = 0;
   useEffect(() => {
-    if(counter >= 0){
-    if(data.height !== 0 ){
+    counter++;
+
+  if(counter >= 2){
+    if(data.tplus !== 0 ){
     setHeight([{
-    'height': data.height,
-    'tplus': parseInt(data.tplus),
+    'Height': data.height,
+    'yValue': parseInt(data.tplus),
     'amt': 100
     }])
+    counter = 0; 
 
-    counter = 0;
-    
+    setThrust([{
+    'Thrust': data.thrust,
+    'yValue': parseInt(data.tplus),
+    'amt': 100
+    }])}
+
   }
-    counter++;
   
-  }
   }, [data])
+
 
   
   return (
     <div className="App">
       <header className="App-header">
+        <div className='plot'>
         <Chart data={heightPlot}/>      
+        <Chart data={thrustPlot}/>      
+        </div>
         <Body/>
       </header>
     </div>

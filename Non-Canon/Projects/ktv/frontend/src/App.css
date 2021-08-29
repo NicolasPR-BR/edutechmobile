@@ -15,3 +15,9 @@
 .App-link {
   color: #61dafb;
 }
+.plot {
+  display: flex;
+}
+.tel-body {
+  display: flex;
+}

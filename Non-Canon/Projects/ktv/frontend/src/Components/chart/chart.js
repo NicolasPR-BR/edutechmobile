@@ -4,9 +4,14 @@ import React, {useEffect, useState} from 'react';
 const Chart  = React.memo(({data}) =>{
   
     const [height, setHeight] = useState([]);
-      
+    const [name, setName] = useState([]);
+
     useEffect(() => {
-    if(height.length >= 100){
+      setName(data[0].name)
+    }, [])
+
+    useEffect(() => {
+    if(height.length >= 300){
       setHeight([...data])
     }else{
       setHeight([...height, ...data])
@@ -19,14 +24,14 @@ const Chart  = React.memo(({data}) =>{
     return( 
   <>
 
-  <LineChart width={730} height={250} data={height}
+  <LineChart width={600} height={400} data={height}
         margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-          <CartesianGrid strokeDasharray="5 5" />
-          <XAxis dataKey="tplus" />
+          <CartesianGrid strokeDasharray="3 3" />
+          <XAxis dataKey={name} />
+          <YAxis dataKey="yValue"/>
           <Tooltip/>
           <Legend/>
-          <YAxis dataKey="height"/>
-          <Line isAnimationActive={false} animationBegin={0} animationDuration={0}  dataKey="height" stroke="#82ca9d"/>
+          <Line isAnimationActive={false} animationBegin={0} animationDuration={0} type="monotone" dataKey={name} stroke="#82ca9d"/>
   </LineChart>
 
   </>

@@ -18,7 +18,7 @@ function socket(setConnected, setHeight, setData, heightPlot, data, update){
           'tplus': parseInt(data.tplus), 
           'amt': 100,
           }]
-      setHeight(novosDados)
+      //setHeight(novosDados)
       console.log(novosDados)
       //setHeight([...heightPlot, ...novosDados])
       //update(novosDados)
