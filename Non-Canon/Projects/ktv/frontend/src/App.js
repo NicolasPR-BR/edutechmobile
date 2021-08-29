@@ -20,20 +20,20 @@ function App() {
     'amt': 100
     }]
   );
-  
+
   const [isConnected, setConnected] = useState(false);
+
+  const update = (data, data2) =>{
+    console.log("updater")
+    heightPlot = ([...data, ...data2]);
+  }
+
   useEffect(() => {
-    setHeight(setHeight([
-    {
-    'height': data.height,
-    'tplus': parseInt(data.tplus),
-    'amt': 100
-    }])
-    );
-  }, [data])
-  socket(setConnected, setHeight, setData, heightPlot, data)
+    socket(setConnected, setHeight, setData, heightPlot, data, update);    
+
+  }, [])
   
-  console.log(heightPlot)
+  //console.log(heightPlot)
   const Body = React.memo(() =>{
     //<p>Height: {heightPlot.height}</p>
     return (
@@ -50,18 +50,36 @@ function App() {
       </>
     )
   }, data)
+
   //   <Chart props={[...heightPlot,{
   //  'height': data.height,
   // 'tplus': parseInt(data.tplus),
   //  'amt': 100
   //  }]}/>
+  let counter = 0;
+  useEffect(() => {
+    if(counter >= 0){
+    if(data.height !== 0 ){
+    setHeight([{
+    'height': data.height,
+    'tplus': parseInt(data.tplus),
+    'amt': 100
+    }])
 
+    counter = 0;
+    
+  }
+    counter++;
+  
+  }
+  }, [data])
+
+  
   return (
     <div className="App">
       <header className="App-header">
-        <Chart props={heightPlot}/>      
+        <Chart data={heightPlot}/>      
         <Body/>
-
       </header>
     </div>
   );
