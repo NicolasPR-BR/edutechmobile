@@ -17,10 +17,7 @@ const Chart  = React.memo(({data}) =>{
       setHeight([...height, ...data])
     }
 
-  }, [data])  
-    
-    
-    console.log(height)
+  }, [data])    
     return( 
   <>
   <ResponsiveContainer width={600} height={400}>

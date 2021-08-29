@@ -28,6 +28,7 @@ refframe = vessel.orbit.body.reference_frame
 #position = conn.add_stream(vessel.position, refframe)
 flight_info = vessel.flight()
 
+
 altitude = conn.add_stream(getattr, flight_info, 'mean_altitude')
 thrust = conn.add_stream(getattr, vessel, 'thrust')
 qPressure = conn.add_stream(getattr, flight_info, 'dynamic_pressure')
@@ -46,6 +47,7 @@ while(1):
         "mass": int(mass()),
         "latitude": latitude(),
         "longitude": longitude(),
+
     },
     sio.emit('data_received', data)
     print(data)

@@ -51,7 +51,7 @@ function App() {
     'amt': 100
     },
     {
-    'Thrust': 5000,
+    'Thrust': data.thrust,
     'yValue': parseInt(data.tplus),
     'amt': 100
     }]
@@ -79,6 +79,7 @@ function App() {
   //console.log(heightPlot)
   const Body = React.memo(() =>{
     //<p>Height: {heightPlot.height}</p>
+    console.log(data)
     return (
       <>
         
@@ -92,7 +93,7 @@ function App() {
         <p>Thrust Newtons: {data.thrust}</p>
         <p>Q (Pascal): {data.dynamic_pressure}</p>
         <p>Mass kg: {data.mass}</p>
-       
+        
 
       </>
     )
