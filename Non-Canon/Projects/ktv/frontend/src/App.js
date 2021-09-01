@@ -1,5 +1,5 @@
 import './App.css';
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import Chart from './Components/chart/chart';
 import socket from './API/Socket/socket';
 

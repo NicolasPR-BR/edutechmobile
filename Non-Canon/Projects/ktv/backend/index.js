@@ -41,6 +41,7 @@ server.on('connection', (socket) => {
      // }
 
     })
+    
   io.on('connection', (socket) => {
   socket.on('disconnecting', (reason) => {
     let rooms = Object.keys(socket.rooms);
